@@ -31,7 +31,27 @@
     </style>
 
     <script type="text/javascript">
-
+        function change(x) {
+            let wtr = document.getElementById("wtr");
+            let wts = document.getElementById("wts");
+            if (x=="smiley") {
+                wtr.style.display = "inline";
+                wtr.style.color = "red";
+                wtr.style.fontSize = "2em";
+                wtr.style.fontFamily = "Lucida Handwriting";
+                wtr.style.backgroundColor = "yellow"
+                wts.style.display = "none";
+            } else {
+                wts.style.display = "inline";
+                wts.style.color = "green";
+                wts.style.fontSize = "2em";
+                wts.style.fontFamily = "Arial";
+                wts.style.fontWeight = "bold";
+                wts.style.backgroundColor = "blue"
+                wtr.style.display = "none";
+            }
+        return false;
+        }
     </script>
 </head>
 
@@ -49,12 +69,12 @@
 
     <table>
         <tr>
-            <td><img src="smiley.jpg" alt="Smiling Face" title="Smile"></td>
-            <td>Web Tech Rocks!</td>
+            <td><img src="smiley.jpg" alt="Smiling Face" title="Smile" id="smiley" onclick="return change(this.id)"></td>
+            <td id="wtr">Web Tech Rocks!</td>
         </tr>
         <tr>
-            <td><img src="frown.jpg" alt="Frown Face" title="Sad"></td>
-            <td>Web Tech Sucks!</td>
+            <td><img src="frown.jpg" alt="Frown Face" title="Sad" id="sad" onclick="return change(this.id)"></td>
+            <td id="wts">Web Tech Sucks!</td>
         </tr>
 
     </table>

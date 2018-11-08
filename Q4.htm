@@ -31,6 +31,29 @@
         /* Your JavaScript goes here */
         const squares = ["Go", "Mediterranean Avenue", "Community Chest", "Baltic Avenue", "Income Tax", "Reading Railroad", "Oriental Avenue", "Chance", "Vermont Avenue", "Connecticut Avenue", "Visiting Jail", "St. Charles Place", "Electric Company", "States Avenue", "Virginia Avenue", "Pennsylvania Railroad", "St James Place", "Community Chest", "Tennessee Avenue", "New York Avenue", "Free Parking", "Kentucky Avenue", "Chance", "Indiana Avenue", "Illinois Avenue", "B &amp; O Railroad", "Atlantic Avenue", "Ventnor Avenue", "Water works", "Marvin Gardens", "Go to Jail", "Pacific Avenue", "No. Carolina Avenue", "Community Chest", "Pennsylvania Avenue", "Short line Railroad", "Chance", "Park Place", "Luxury Tax", "Broadwalk"];
         let loc = 0;
+
+        function roll() {
+            let d1 = document.getElementById("d1");
+            let d2 = document.getElementById("d2");
+            let location = document.getElementById("location");
+            let roll1 = Math.floor(Math.random() * 6) + 1;
+            let roll2 = Math.floor(Math.random() * 6) + 1;
+            loc += roll1 + roll2
+            if (loc > 39) {
+                loc -= 40;
+                location.innerHTML = squares[loc];
+                d1.innerHTML = roll1.toString();
+                d2.innerHTML = roll2.toString();
+                alert("You have passed Go.");
+                return false;
+            } else {
+                d1.innerHTML = roll1.toString();
+                d2.innerHTML = roll2.toString();
+                location.innerHTML = squares[loc];
+                return false;
+            }
+        }
+    </script>
     </script>
 </head>
 
@@ -52,11 +75,11 @@
 
     <div>
         <p>
-            Die 1: 0<br/>
-            Die 2: 0<br/>
-            Your piece is on Go.
+            Die 1: <span id="d1">0</span><br/>
+            Die 2: <span id="d2">0</span><br/>
+            Your piece is on <span id="location">Go</span>.
         </p>
-        <button>Roll the dice</button>
+        <button onclick="return roll()">Roll the dice</button>
     </div>
 
 </body>
